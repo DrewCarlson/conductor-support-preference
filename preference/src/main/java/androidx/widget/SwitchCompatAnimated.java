@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-package androidx.appcompat.widget;
+package androidx.widget;
 
 import android.content.Context;
 import androidx.annotation.RestrictTo;
+import androidx.appcompat.widget.SwitchCompat;
+
 import android.util.AttributeSet;
 
 /**

@@ -53,7 +53,7 @@ public class MultiSelectListPreferenceDialogController extends PreferenceDialogC
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            final MultiSelectListPreference preference = getListPreference();
+            final androidx.preference.MultiSelectListPreference preference = getListPreference();
 
             if (preference.getEntries() == null || preference.getEntryValues() == null) {
                 throw new IllegalStateException(
@@ -88,8 +88,8 @@ public class MultiSelectListPreferenceDialogController extends PreferenceDialogC
         mEntryValues = savedInstanceState.getCharSequenceArray(SAVE_STATE_ENTRY_VALUES);
     }
 
-    private MultiSelectListPreference getListPreference() {
-        return (MultiSelectListPreference) getPreference();
+    private androidx.preference.MultiSelectListPreference getListPreference() {
+        return (androidx.preference.MultiSelectListPreference) getPreference();
     }
 
     @Override
@@ -117,7 +117,7 @@ public class MultiSelectListPreferenceDialogController extends PreferenceDialogC
 
     @Override
     public void onDialogClosed(boolean positiveResult) {
-        final MultiSelectListPreference preference = getListPreference();
+        final androidx.preference.MultiSelectListPreference preference = getListPreference();
         if (positiveResult && mPreferenceChanged) {
             final Set<String> values = mNewValues;
             if (preference.callChangeListener(values)) {

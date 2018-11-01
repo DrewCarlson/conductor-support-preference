@@ -19,6 +19,7 @@ package androidx.preference;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
+
 import android.view.View;
 import android.widget.EditText;
 

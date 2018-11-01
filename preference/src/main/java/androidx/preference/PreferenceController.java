@@ -29,7 +29,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
 import androidx.fragment.app.Fragment;
-import androidx.core.view.ViewCompat;
 import androidx.preference.internal.AbstractMultiSelectListPreference;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -130,7 +129,7 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
 
     private Context mStyledContext;
 
-    private int mLayoutResId = R.layout.preference_list_fragment;
+    private int mLayoutResId = androidx.preference.R.layout.preference_list_fragment;
 
     private DividerDecoration mDividerDecoration = null;
 
@@ -203,7 +202,7 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
         mHavePrefs = false;
 
         final TypedValue tv = new TypedValue();
-        getActivity().getTheme().resolveAttribute(R.attr.preferenceTheme, tv, true);
+        getActivity().getTheme().resolveAttribute(androidx.preference.R.attr.preferenceTheme, tv, true);
         final int theme = tv.resourceId;
         if (theme == 0) {
             throw new IllegalStateException("Must specify preferenceTheme in theme");
@@ -215,20 +214,20 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
         onCreatePreferences(savedInstanceState, rootKey);
 
         TypedArray a = mStyledContext.obtainStyledAttributes(null,
-                R.styleable.PreferenceFragmentCompat,
-                R.attr.preferenceFragmentCompatStyle,
+                androidx.preference.R.styleable.PreferenceFragmentCompat,
+                androidx.preference.R.attr.preferenceFragmentCompatStyle,
                 0);
 
-        mLayoutResId = a.getResourceId(R.styleable.PreferenceFragmentCompat_android_layout,
+        mLayoutResId = a.getResourceId(androidx.preference.R.styleable.PreferenceFragmentCompat_android_layout,
                 mLayoutResId);
 
         mDividerDecoration = new DividerDecoration();
         final Drawable divider = a.getDrawable(
-                R.styleable.PreferenceFragmentCompat_android_divider);
+                androidx.preference.R.styleable.PreferenceFragmentCompat_android_divider);
         final int dividerHeight = a.getDimensionPixelSize(
-                R.styleable.PreferenceFragmentCompat_android_dividerHeight, -1);
+                androidx.preference.R.styleable.PreferenceFragmentCompat_android_dividerHeight, -1);
         final boolean allowDividerAfterLastItem = a.getBoolean(
-                R.styleable.PreferenceFragmentCompat_allowDividerAfterLastItem, true);
+                androidx.preference.R.styleable.PreferenceFragmentCompat_allowDividerAfterLastItem, true);
 
         a.recycle();
 
@@ -505,7 +504,7 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
     public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
                                              Bundle savedInstanceState) {
         RecyclerView recyclerView = (RecyclerView) inflater
-                .inflate(R.layout.preference_recyclerview, parent, false);
+                .inflate(androidx.preference.R.layout.preference_recyclerview, parent, false);
 
         recyclerView.setLayoutManager(onCreateLayoutManager());
         recyclerView.setAccessibilityDelegateCompat(
