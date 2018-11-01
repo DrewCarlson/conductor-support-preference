@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package android.support.v7.preference;
+package androidx.preference;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -24,15 +24,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
-import android.support.annotation.XmlRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.preference.internal.AbstractMultiSelectListPreference;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.XmlRes;
+import androidx.fragment.app.Fragment;
+import androidx.core.view.ViewCompat;
+import androidx.preference.internal.AbstractMultiSelectListPreference;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -41,7 +41,7 @@ import android.view.ViewGroup;
 
 import com.bluelinelabs.conductor.RestoreViewOnCreateController;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 /**
  * Shows a hierarchy of {@link Preference} objects as
@@ -113,7 +113,7 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
 
     /**
      * Fragment argument used to specify the tag of the desired root
-     * {@link android.support.v7.preference.PreferenceScreen} object.
+     * {@link androidx.preference.PreferenceScreen} object.
      */
     public static final String ARG_PREFERENCE_ROOT =
             "android.support.v7.preference.PreferenceFragmentCompat.PREFERENCE_ROOT";
@@ -191,7 +191,7 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
      * @param savedInstanceState If the fragment is being re-created from
      *                           a previous saved state, this is the state.
      * @param rootKey If non-null, this preference fragment should be rooted at the
-     *                {@link android.support.v7.preference.PreferenceScreen} with this key.
+     *                {@link androidx.preference.PreferenceScreen} with this key.
      */
     public abstract void onCreatePreferences(Bundle savedInstanceState, String rootKey);
 
@@ -408,9 +408,9 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
      * the preference hierarchy rooted at {@code key}.
      *
      * @param preferencesResId The XML resource ID to inflate.
-     * @param key The preference key of the {@link android.support.v7.preference.PreferenceScreen}
+     * @param key The preference key of the {@link androidx.preference.PreferenceScreen}
      *            to use as the root of the preference hierarchy, or null to use the root
-     *            {@link android.support.v7.preference.PreferenceScreen}.
+     *            {@link androidx.preference.PreferenceScreen}.
      */
     public void setPreferencesFromResource(@XmlRes int preferencesResId, @Nullable String key) {
         requirePreferenceManager();
@@ -437,7 +437,7 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
      *
      * @param key The key of the preference to retrieve.
      * @return The {@link Preference} with the key, or null.
-     * @see android.support.v7.preference.PreferenceGroup#findPreference(CharSequence)
+     * @see androidx.preference.PreferenceGroup#findPreference(CharSequence)
      */
     @Override
     public Preference findPreference(CharSequence key) {
@@ -490,11 +490,11 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
     }
 
     /**
-     * Creates the {@link android.support.v7.widget.RecyclerView} used to display the preferences.
+     * Creates the {@link RecyclerView} used to display the preferences.
      * Subclasses may override this to return a customized
-     * {@link android.support.v7.widget.RecyclerView}.
+     * {@link RecyclerView}.
      * @param inflater The LayoutInflater object that can be used to inflate the
-     *                 {@link android.support.v7.widget.RecyclerView}.
+     *                 {@link RecyclerView}.
      * @param parent The parent {@link android.view.View} that the RecyclerView will be attached to.
      *               This method should not add the view itself, but this can be used to generate
      *               the LayoutParams of the view.
@@ -516,9 +516,9 @@ public abstract class PreferenceController extends RestoreViewOnCreateController
 
     /**
      * Called from {@link #onCreateRecyclerView} to create the
-     * {@link android.support.v7.widget.RecyclerView.LayoutManager} for the created
-     * {@link android.support.v7.widget.RecyclerView}.
-     * @return A new {@link android.support.v7.widget.RecyclerView.LayoutManager} instance.
+     * {@link RecyclerView.LayoutManager} for the created
+     * {@link RecyclerView}.
+     * @return A new {@link RecyclerView.LayoutManager} instance.
      */
     public RecyclerView.LayoutManager onCreateLayoutManager() {
         return new LinearLayoutManager(getActivity());

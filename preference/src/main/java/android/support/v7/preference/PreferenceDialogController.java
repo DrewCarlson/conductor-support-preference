@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package android.support.v7.preference;
+package androidx.preference;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -24,11 +24,11 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,11 +43,11 @@ import com.bluelinelabs.conductor.Router;
 import com.bluelinelabs.conductor.RouterTransaction;
 import com.bluelinelabs.conductor.changehandler.SimpleSwapChangeHandler;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 /**
  * Abstract base class which presents a dialog associated with a
- * {@link android.support.v7.preference.DialogPreference}. Since the preference object may
+ * {@link androidx.preference.DialogPreference}. Since the preference object may
  * not be available during fragment re-creation, the necessary information for displaying the dialog
  * is read once during the initial call to {@link #onCreate(Bundle)} and saved/restored in the saved
  * instance state. Custom subclasses should also follow this pattern.

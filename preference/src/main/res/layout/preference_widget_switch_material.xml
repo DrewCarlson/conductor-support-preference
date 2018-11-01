@@ -17,7 +17,7 @@
 
 <!-- Layout used by SwitchPreference for the switch widget style. This is inflated
      inside android.R.layout.preference. -->
-<android.support.v7.widget.SwitchCompatAnimated
+<androidx.appcompat.widget.SwitchCompatAnimated
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         tools:ignore="NewApi"

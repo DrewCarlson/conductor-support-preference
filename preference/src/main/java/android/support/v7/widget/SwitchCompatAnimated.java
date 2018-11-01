@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package android.support.v7.widget;
+package androidx.appcompat.widget;
 
 import android.content.Context;
-import android.support.annotation.RestrictTo;
+import androidx.annotation.RestrictTo;
 import android.util.AttributeSet;
 
 /**
